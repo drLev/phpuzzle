@@ -26,4 +26,17 @@ function is_palindrom(string $word)
 
 assert(is_palindrom('шалаш'));
 assert(is_palindrom('казак'));
-assert(is_palindrom('это другое'));
+assert(is_palindrom('это другое') === false);
+
+function array_double(array $numbers)
+{
+    return array_map(
+        function($number) {
+            return $number * 2;
+        },
+        $numbers
+    );
+}
+
+assert(array_double([1, 2, 3]) == [2, 4, 6]);
+assert(array_double([3, 2, 1]) == [6, 4, 2]);
