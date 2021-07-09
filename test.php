@@ -40,3 +40,21 @@ function array_double(array $numbers)
 
 assert(array_double([1, 2, 3]) == [2, 4, 6]);
 assert(array_double([3, 2, 1]) == [6, 4, 2]);
+
+function only_odd(array $numbers)
+{
+    return str_split(
+        implode(
+            array_map(
+                function($item) {
+                    return $item%2?$item:'';
+                },
+                $numbers
+            )
+        )
+    );
+}
+
+assert(only_odd([1, 2, 3, 4]) == [1, 3]);
+assert(only_odd([1, 3, 5, 7]) == [1, 3, 5, 7]);
+assert(only_odd([1, 2, 3, 4]) != [1, 2, 3, 4]);
