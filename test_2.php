@@ -41,8 +41,12 @@ assert(min_even([16, 15, 14]) == 14);
 
 function min_sum_elements(array $arr): array
 {
-    return [];
+    return array_reduce($arr, function($carry, $item) use ($arr) {
+        static $index = 0;
+        return (array_sum($carry) > $item + ($arr[++$index] ?? PHP_INT_MAX / 2)) ? [$item, $arr[$index]] : $carry;
+    }, [PHP_INT_MAX / 2, PHP_INT_MAX / 2]);
 }
+
 assert(min_sum_elements([1, 2, 3]) == [1, 2]);
 assert(min_sum_elements([8, 1, 6, 3, 6, 2, 8]) == [1, 6]);
-assert(min_sum_elements([16, 15, 14]) == 14);
+assert(min_sum_elements([16, 15, 14]) == [15, 14]);
