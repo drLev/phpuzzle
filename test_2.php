@@ -38,3 +38,11 @@ assert(min_even([1, 2, 3]) == 2);
 assert(min_even([1, 3]) == -1);
 assert(min_even([1, 2, 3, 4, 5, 6]) == 2);
 assert(min_even([16, 15, 14]) == 14);
+
+function min_sum_elements(array $arr): array
+{
+    return [];
+}
+assert(min_sum_elements([1, 2, 3]) == [1, 2]);
+assert(min_sum_elements([8, 1, 6, 3, 6, 2, 8]) == [1, 6]);
+assert(min_sum_elements([16, 15, 14]) == 14);
